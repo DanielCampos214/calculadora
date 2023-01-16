@@ -15,26 +15,50 @@
 
 <body>
     <div>
-        <p>12,452</p>
-        <button class="gray-button">AC</button>
-        <button class="gray-button">+/-</button>
-        <button class="blue-button">/</button>
-        <button class="blue-button">*</button>
-        <button class="black-button">7</button>
-        <button class="black-button">8</button>
-        <button class="black-button">9</button>
-        <button class="blue-button">-</button>
-        <button class="black-button">4</button>
-        <button class="black-button">5</button>
-        <button class="black-button">6</button>
-        <button class="blue-button">+</button>
-        <button class="black-button">1</button>
-        <button class="black-button">2</button>
-        <button class="black-button">3</button>
-        <button class="equal-button equal">=</button>
-        <button class="black-button zero">0</button>
-        <button class="black-button">.</button>
+        <input class="display" />
+        <button class="gray-button" onclick="clearDisplay()">AC</button>
+        <button class="gray-button" onclick='inverterNumber()' >+/-</button>
+        <button class="blue-button" onclick="addCharacter('/')">/</button>
+        <button class="blue-button" onclick="addCharacter('*')">*</button>
+        <button class="black-button"onclick="addCharacter('7')">7</button>
+        <button class="black-button"onclick="addCharacter('8')">8</button>
+        <button class="black-button"onclick="addCharacter('9')">9</button>
+        <button class="blue-button" onclick="addCharacter('-')">-</button>
+        <button class="black-button"onclick="addCharacter('4')">4</button>
+        <button class="black-button"onclick="addCharacter('5')">5</button>
+        <button class="black-button"onclick="addCharacter('6')">6</button>
+        <button class="blue-button" onclick="addCharacter('+')">+</button>
+        <button class="black-button"onclick="addCharacter('1')">1</button>
+        <button class="black-button"onclick="addCharacter('2')">2</button>
+        <button class="black-button"onclick="addCharacter('3')">3</button>
+        <button class="equal-button equal" onclick="calculate()">=</button>
+        <button class="black-button zero"onclick="addCharacter('0')">0</button>
+        <button class="black-button"onclick="addCharacter('.')">.</button>
     </div>
 </body>
+<script>
+    function addCharacter(num) {
+        const display = document.querySelector('.display').value
 
+        document.querySelector('.display').value = display + num
+
+    }
+
+    function clearDisplay(){
+        document.querySelector('.display').value = ""
+    }
+
+    function calculate(){
+        const display = document.querySelector('.display').value
+
+        document.querySelector('.display').value = eval(display)
+    }
+
+    function inverterNumber() {
+        const display = document.querySelector('.display').value 
+
+        document.querySelector('.display').value = display * -1
+    }
+
+</script>
 </html>
